@@ -1,24 +1,295 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJW-zF-Tu7">
+                                <rect key="frame" x="120" y="560" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="MBc-tg-5s9"/>
+                                    <constraint firstAttribute="height" constant="50" id="y31-sK-Fq9"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Ve3-Me-nKE" kind="show" id="hgB-by-hQ1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press play to start your game of TicTacToe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrG-C2-fBS">
+                                <rect key="frame" x="95" y="294" width="200" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Sbr-gu-4dy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wrG-C2-fBS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="6yj-7M-5zs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fJW-zF-Tu7" secondAttribute="bottom" constant="200" id="7yb-QF-uUD"/>
+                            <constraint firstItem="fJW-zF-Tu7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OOL-Fu-cAX"/>
+                            <constraint firstItem="wrG-C2-fBS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rjp-RG-Znm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="70"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="iDu-oT-IXh">
+            <objects>
+                <viewController id="Ve3-Me-nKE" customClass="GameViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hds-9F-iqW">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="h0Z-te-4Pb">
+                                <rect key="frame" x="15" y="213.66666666666663" width="120" height="123.33333333333337"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="JL7-s4-xbU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="SpA-Wr-yre"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KyK-Jx-Ft7">
+                                <rect key="frame" x="135" y="213.66666666666663" width="120" height="123.33333333333337"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="19B-3I-VR4"/>
+                                    <constraint firstAttribute="width" constant="120" id="k4b-IX-gkx"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NKn-i7-M4r">
+                                <rect key="frame" x="255" y="213.66666666666663" width="120" height="123.33333333333337"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="WP7-g1-fQq"/>
+                                    <constraint firstAttribute="height" constant="120" id="m6k-zj-MH9"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QMm-6R-4jR">
+                                <rect key="frame" x="15" y="333.66666666666669" width="120" height="123.33333333333331"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Djs-5I-Pto"/>
+                                    <constraint firstAttribute="height" constant="120" id="SFJ-wj-v06"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gzv-SL-fTX">
+                                <rect key="frame" x="135" y="333.66666666666669" width="120" height="123.33333333333331"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Cbg-0V-LHP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="EYf-Wd-c6E"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e97-ol-D2z">
+                                <rect key="frame" x="255" y="333.66666666666669" width="120" height="123.33333333333331"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="7Xm-Au-kLP"/>
+                                    <constraint firstAttribute="width" constant="120" id="mmR-nO-Uir"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="56a-xF-p4d">
+                                <rect key="frame" x="15" y="453.66666666666669" width="120" height="123.33333333333331"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="1D1-ts-lkY"/>
+                                    <constraint firstAttribute="height" constant="120" id="9b4-he-qfB"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="7" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tiB-76-Ljv">
+                                <rect key="frame" x="135" y="453.66666666666669" width="120" height="123.33333333333331"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="FO1-SS-qae"/>
+                                    <constraint firstAttribute="width" constant="120" id="Qf5-79-YUN"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="8" contentMode="scaleAspectFill" image="squareshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="575-Xv-efk">
+                                <rect key="frame" x="255" y="453.66666666666669" width="120" height="123.33333333333331"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="7eJ-qd-73U"/>
+                                    <constraint firstAttribute="height" constant="120" id="IUc-5E-Zxz"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Donut" translatesAutoresizingMaskIntoConstraints="NO" id="pMk-bd-0vt">
+                                <rect key="frame" x="155" y="630" width="80" height="80"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Tqj-Fv-xDL"/>
+                                    <constraint firstAttribute="width" constant="80" id="Yuo-3g-Ucy"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="9E9-6U-kQX" appends="YES" id="Gv3-eb-uSy"/>
+                                    <outletCollection property="gestureRecognizers" destination="mNZ-En-6DW" appends="YES" id="aDs-fZ-06g"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qep-uu-X9T">
+                                <rect key="frame" x="95" y="159.66666666666666" width="200" height="25.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Bs6-fE-077"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="memories" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="O5t-pm-Bnt">
+                                <rect key="frame" x="300" y="75" width="60" height="58.666666666666671"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="HY7-RH-aIq"/>
+                                    <constraint firstAttribute="height" constant="60" id="wCr-jh-Uc3"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Xqc-LM-pV4" appends="YES" id="ajv-z8-m3s"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="w0h-wt-EIg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gzv-SL-fTX" firstAttribute="top" secondItem="KyK-Jx-Ft7" secondAttribute="bottom" id="0e2-ef-9BO"/>
+                            <constraint firstItem="575-Xv-efk" firstAttribute="top" secondItem="e97-ol-D2z" secondAttribute="bottom" id="AE6-S6-q5o"/>
+                            <constraint firstItem="KyK-Jx-Ft7" firstAttribute="leading" secondItem="h0Z-te-4Pb" secondAttribute="trailing" id="B6E-Lv-TkB"/>
+                            <constraint firstItem="tiB-76-Ljv" firstAttribute="top" secondItem="Gzv-SL-fTX" secondAttribute="bottom" id="Bqn-22-pYQ"/>
+                            <constraint firstItem="e97-ol-D2z" firstAttribute="top" secondItem="NKn-i7-M4r" secondAttribute="bottom" id="DDK-xF-pne"/>
+                            <constraint firstItem="56a-xF-p4d" firstAttribute="top" secondItem="QMm-6R-4jR" secondAttribute="bottom" id="FpO-j8-fYu"/>
+                            <constraint firstItem="Qep-uu-X9T" firstAttribute="centerX" secondItem="hds-9F-iqW" secondAttribute="centerX" id="P96-HJ-wh9"/>
+                            <constraint firstItem="tiB-76-Ljv" firstAttribute="leading" secondItem="56a-xF-p4d" secondAttribute="trailing" id="S2Y-6A-8qV"/>
+                            <constraint firstItem="QMm-6R-4jR" firstAttribute="centerY" secondItem="hds-9F-iqW" secondAttribute="centerY" id="SMK-Gp-IZR"/>
+                            <constraint firstItem="575-Xv-efk" firstAttribute="leading" secondItem="tiB-76-Ljv" secondAttribute="trailing" id="TfZ-R2-Ct3"/>
+                            <constraint firstItem="Gzv-SL-fTX" firstAttribute="top" secondItem="KyK-Jx-Ft7" secondAttribute="bottom" id="Vla-fh-Xjv"/>
+                            <constraint firstItem="w0h-wt-EIg" firstAttribute="bottom" secondItem="pMk-bd-0vt" secondAttribute="bottom" constant="80" id="WVk-Nl-rpV"/>
+                            <constraint firstItem="e97-ol-D2z" firstAttribute="centerY" secondItem="hds-9F-iqW" secondAttribute="centerY" id="WfS-jI-zz7"/>
+                            <constraint firstItem="e97-ol-D2z" firstAttribute="leading" secondItem="Gzv-SL-fTX" secondAttribute="trailing" id="bLr-XW-KPj"/>
+                            <constraint firstItem="tiB-76-Ljv" firstAttribute="centerX" secondItem="hds-9F-iqW" secondAttribute="centerX" id="bsA-xQ-KtX"/>
+                            <constraint firstItem="QMm-6R-4jR" firstAttribute="top" secondItem="h0Z-te-4Pb" secondAttribute="bottom" id="c6w-4Y-OBf"/>
+                            <constraint firstItem="Gzv-SL-fTX" firstAttribute="centerX" secondItem="hds-9F-iqW" secondAttribute="centerX" id="dtA-FM-hRb"/>
+                            <constraint firstItem="O5t-pm-Bnt" firstAttribute="top" secondItem="w0h-wt-EIg" secondAttribute="top" constant="30" id="eSz-dK-7rp"/>
+                            <constraint firstItem="Gzv-SL-fTX" firstAttribute="leading" secondItem="QMm-6R-4jR" secondAttribute="trailing" id="eed-Dx-fba"/>
+                            <constraint firstItem="Gzv-SL-fTX" firstAttribute="centerY" secondItem="hds-9F-iqW" secondAttribute="centerY" id="fQM-Ug-FFW"/>
+                            <constraint firstItem="tiB-76-Ljv" firstAttribute="top" secondItem="Gzv-SL-fTX" secondAttribute="bottom" id="k2f-Tq-5Kz"/>
+                            <constraint firstItem="pMk-bd-0vt" firstAttribute="centerX" secondItem="hds-9F-iqW" secondAttribute="centerX" id="mbb-Fo-NRa"/>
+                            <constraint firstItem="KyK-Jx-Ft7" firstAttribute="centerX" secondItem="hds-9F-iqW" secondAttribute="centerX" id="qpf-7j-E8F"/>
+                            <constraint firstItem="w0h-wt-EIg" firstAttribute="trailing" secondItem="O5t-pm-Bnt" secondAttribute="trailing" constant="30" id="vqu-oI-G8N"/>
+                            <constraint firstItem="NKn-i7-M4r" firstAttribute="leading" secondItem="KyK-Jx-Ft7" secondAttribute="trailing" id="wFz-Aj-V2O"/>
+                            <constraint firstItem="KyK-Jx-Ft7" firstAttribute="top" secondItem="Qep-uu-X9T" secondAttribute="bottom" constant="30" id="x9T-H1-A3e"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xsx-47-vDR"/>
+                    <connections>
+                        <outlet property="gamePiece" destination="pMk-bd-0vt" id="ct9-cD-Gfz"/>
+                        <outlet property="horizontalPieceConstraint" destination="mbb-Fo-NRa" id="veS-h2-rgJ"/>
+                        <outlet property="lblPlayer" destination="Qep-uu-X9T" id="Sya-9s-UKi"/>
+                        <outlet property="verticalPieceConstraint" destination="WVk-Nl-rpV" id="4SZ-Ea-1ie"/>
+                        <outletCollection property="gameBoxes" destination="h0Z-te-4Pb" collectionClass="NSMutableArray" id="PoH-Kc-OnN"/>
+                        <outletCollection property="gameBoxes" destination="KyK-Jx-Ft7" collectionClass="NSMutableArray" id="UHf-Wd-81K"/>
+                        <outletCollection property="gameBoxes" destination="NKn-i7-M4r" collectionClass="NSMutableArray" id="igb-N6-urk"/>
+                        <outletCollection property="gameBoxes" destination="QMm-6R-4jR" collectionClass="NSMutableArray" id="djd-Bs-xHw"/>
+                        <outletCollection property="gameBoxes" destination="Gzv-SL-fTX" collectionClass="NSMutableArray" id="c6C-YK-eNO"/>
+                        <outletCollection property="gameBoxes" destination="e97-ol-D2z" collectionClass="NSMutableArray" id="hm6-7y-Uv4"/>
+                        <outletCollection property="gameBoxes" destination="56a-xF-p4d" collectionClass="NSMutableArray" id="fUZ-wg-CF3"/>
+                        <outletCollection property="gameBoxes" destination="tiB-76-Ljv" collectionClass="NSMutableArray" id="Q5W-4M-flJ"/>
+                        <outletCollection property="gameBoxes" destination="575-Xv-efk" collectionClass="NSMutableArray" id="fFA-cg-lSd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tNX-t7-FnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="9E9-6U-kQX">
+                    <connections>
+                        <action selector="onDrag:" destination="Ve3-Me-nKE" id="Rlz-YF-IoW"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="mNZ-En-6DW"/>
+                <tapGestureRecognizer id="Xqc-LM-pV4">
+                    <connections>
+                        <action selector="startOver:" destination="Ve3-Me-nKE" id="gEQ-Zs-bq8"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="846" y="70"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Donut" width="80" height="80"/>
+        <image name="memories" catalog="system" width="128" height="110"/>
+        <image name="squareshape.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
